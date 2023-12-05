@@ -32,6 +32,6 @@
 <br>
 <br>
 <h4>"If you want to search for a particular car, go to :"</h4>
-<a href="/cars/search/{name}">Search for a car</a>
+<a href="/cars/search/id">Search for a car</a>
 </body>
 </html>
