@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/cars")
 public class CarController {
-    private CarService carService;
+    private final CarService carService;
 
     @Autowired
     public CarController(CarService carService) {
@@ -28,11 +29,11 @@ public class CarController {
         return "carList";
     }
 
-    @GetMapping("/search/{name}")
+    @GetMapping("/search/id")
     @ResponseBody
-    public String getCar(@PathVariable("name") String name) {
+    public Optional<Car> getCar(@PathVariable Integer id) {
         try {
-            return carService.getCarByName(name);
+            return carService.getCarById(id);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
